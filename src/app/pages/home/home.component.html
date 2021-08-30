@@ -1,0 +1,64 @@
+<h1>Registro <small>de Empleado</small></h1> 
+
+<hr>
+    <form class="form"
+      #f="ngForm" 
+      (ngSubmit)="submit(f)">
+      <div class="row containter">
+
+      <div class="col-12">
+      <div class="form-group">
+        <label for="emp-nombre">Nombre:</label>
+        <input type="text" 
+        placeholder="ejemplo: Juan Alberto Murrieta" 
+        name="nombre" 
+        [(ngModel)]="empleado.nombre"
+        class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="emp-email">Email</label>
+        <input placeholder="ejemplo: nombremail@dominio.es" 
+        type="email" 
+        email 
+        required 
+        name="email" 
+        [(ngModel)]="empleado.email"
+        class="form-control">
+      </div>      
+    </div>
+    <div class="form-group col-4">
+      <label for="emp-rfc">RFC</label>
+      <input type="text" 
+      placeholder="personas fisicas: 11 | morales 13 caracteres" 
+      name="rfc" 
+      class="form-control" 
+      [(ngModel)]="empleado.rfc"
+      maxlength="13">
+    </div>    
+    <div class="form-group col-4">      
+      <label for="emp-edad">Edad</label>
+      <span *ngIf="f.controls.edad && !f.controls.edad.valid" class="ml-2 text-danger"><i>Debe indicar la edad</i></span>
+      <span *ngIf="f.submitted && f.controls.edad && f.value.edad!=='undefined' && f.value.edad=='0'" class="ml-2 text-danger"><i>La edad debe ser mayor a cero</i></span>
+      <input type="number" 
+      class="form-control" 
+      required      
+      [(ngModel)]="empleado.edad"
+      name="edad">
+    </div>
+    <div class="form-group col-4 text-right">
+      <span *ngIf="f.submitted && f.controls.sueldo && !f.controls.sueldo.valid" class="mr-2 text-danger"><i>Debe indicar el sueldo</i></span>
+      <label for="emp-sueldo">Sueldo $</label>      
+      <input type="number" 
+      required
+      class="form-control text-right" 
+      [ngModel]="empleado.sueldo | currency:'CAD':'symbol':'4.2-2'"
+      name="sueldo">
+    </div>
+    <div class="col-12 text-right">
+      <button type="submit" class="btn btn-primary m-2">Guardar</button>
+      <button type="submit" class="btn btn-secondary">Canelar</button>
+    </div>
+  </div>
+  </form>
+
