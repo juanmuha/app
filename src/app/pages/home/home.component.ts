@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.empleado = new EmpleadoModel();
-    this.empleado.nombre="Juan Alberto Murrieta";
+    this.empleado = new EmpleadoModel();    
     this.empleado.edad=0;
     this.empleado.sueldo=123.30;
   }

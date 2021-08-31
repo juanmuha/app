@@ -1,0 +1,15 @@
+<h1>Lista de <small>Empleados</small></h1>
+
+<hr>
+
+<div class="list-group">
+  <a *ngFor="let emp of listaEmpleados"  class="list-group-item list-group-item-action" aria-current="true">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ emp.nombre }}</h5>
+      <small>Edad: {{emp.edad}}</small>
+      <span class="badge rounded-pill bg-primary">{{ emp.sueldo | currency }}</span>
+    </div>
+    <p class="mb-1">{{ emp.email }}</p>
+    <small>{{ emp.rfc }}</small>
+  </a>  
+</div>

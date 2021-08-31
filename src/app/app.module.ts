@@ -9,13 +9,20 @@ import { AppComponent } from './app.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NavbarComponent } from './pages/shared/navbar/navbar.component';
+
+import { RegistroEmpleadoComponent  } from "./pages/empleados/registro/registroEmp.component";
+import { ListaEmpleadosComponent } from './pages/empleados/lista-empleados/lista-empleados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    RegistroEmpleadoComponent,
+    ListaEmpleadosComponent
   ],
   imports: [
     BrowserModule,
