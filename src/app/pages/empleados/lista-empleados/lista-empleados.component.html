@@ -3,11 +3,17 @@
 <hr>
 
 <div class="list-group">
-  <a *ngFor="let emp of listaEmpleados"  class="list-group-item list-group-item-action" aria-current="true">
+  <a *ngFor="let emp of listaEmpleados"  
+  class="list-group-item list-group-item-action" 
+  aria-current="true"
+  [routerLink]="['/home/registroEmp', emp.id]"
+  >
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ emp.nombre }}</h5>
       <small>Edad: {{emp.edad}}</small>
-      <span class="badge rounded-pill bg-primary">{{ emp.sueldo | currency }}</span>
+      <span class="badge rounded-pill bg-primary" style="color: azure; font-weight: 100; padding-top: 7px;">
+        {{ emp.sueldo | currency }}
+      </span>
     </div>
     <p class="mb-1">{{ emp.email }}</p>
     <small>{{ emp.rfc }}</small>
