@@ -1,26 +1,54 @@
 <h1>Lista de <small>Empleados</small></h1>
 
-<hr>
-
-<div class="list-group">
-  <div  *ngFor="let emp of listaEmpleados" >
-  <a 
-  class="list-group-item list-group-item-action" 
-  aria-current="true"
-  [routerLink]="['/home/registroEmp', emp.id]"
-  >
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{ emp.nombre }}</h5>
-      <small>Edad: {{emp.edad}}</small>
-      <span class="badge rounded-pill bg-primary" style="color: azure; font-weight: 100; padding-top: 7px;">
-        {{ emp.sueldo | currency }}
-      </span>
+<hr />
+<div class="row">
+  <div [ngStyle]="{ display: 'inline-block', width: adminTareasService._widthW }">
+    <div class="list-group">
+      <div class="row" *ngFor="let emp of listaEmpleados">
+        <div class="col-11">
+          <a class="list-group-item list-group-item-action" (click)="mostrarVentanaTareas(emp.id)" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ emp.nombre }}</h5>
+              <small>Edad: {{ emp.edad }}</small>
+              <span
+                class="badge rounded-pill bg-primary"
+                style="color: azure; font-weight: 100; padding-top: 7px"
+              >
+                {{ emp.sueldo | currency }}
+              </span>
+            </div>
+            <p class="mb-1">{{ emp.email }}</p>
+            <small>{{ emp.rfc }}</small>
+          </a>
+        </div>
+        <div class="col-1">
+          <div class="row">
+            <div style="display: inline-block; width: 89%">
+              <span class="i-emp-delete"
+                ><i
+                  [routerLink]="['/home/registroEmp', emp.id]"
+                  class="fa fa-address-book-o"
+                  aria-hidden="true"
+                ></i
+              ></span>
+            </div>
+          </div>
+          <div class="row">
+            <div style="display: inline-block; width: 89%">
+              <span class="i-emp-delete"
+                ><i
+                  (click)="eliminar(emp.id)"
+                  class="fa fa-trash-o"
+                  aria-hidden="true"
+                ></i
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="mb-1">{{ emp.email }}</p>
-    <small>{{ emp.rfc }}</small>        
-    <div style="display: inline-block; width:89%; text-align: right; ">
-      <span class="i-emp-delete"><i (click)="eliminar(emp.id)" class="fa fa-trash-o" aria-hidden="true" ></i></span>
-    </div>
-  </a>      
-</div>
+  </div>
+  <div *ngIf="adminTareasService._showTareas" [ngStyle]="{width:'40%'}">
+    <router-outlet></router-outlet>
+  </div>
 </div>

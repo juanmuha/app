@@ -13,6 +13,7 @@ import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 
 import { RegistroEmpleadoComponent  } from "./pages/empleados/registro/registroEmp.component";
 import { ListaEmpleadosComponent } from './pages/empleados/lista-empleados/lista-empleados.component';
+import { TareasComponent } from './pages/tareas/tareas.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListaEmpleadosComponent } from './pages/empleados/lista-empleados/lista
     LoginComponent,
     NavbarComponent,
     RegistroEmpleadoComponent,
-    ListaEmpleadosComponent
+    ListaEmpleadosComponent,
+    TareasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,34 @@
+<!-- <div style="display: inline-block;">
+<hr style="border:         none;
+           border-left:    1px solid hsla(200, 10%, 50%,100);
+           height:         100vh;
+           width:          1px;">
+</div> -->
+<div class="row animated fadeInRight">
+  <div class="col-9">
+    <h4><small>Tareas</small></h4>
+  </div>
+  <div class="col-2" style="width: 100%">
+    <button type="button" (click)="cerrar()" class="btn btn-light">x</button>
+  </div>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Concluido</th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarea of listaTareas;" >
+          <td>{{ tarea.nombre }}</td>
+          <td>{{ tarea.concluida }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
