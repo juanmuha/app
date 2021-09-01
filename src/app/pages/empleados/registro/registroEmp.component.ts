@@ -2,7 +2,7 @@ import { CanDeactivate } from '@angular/router/src/utils/preactivation';
 import { browser } from 'protractor';
 import { EmpleadosService } from './../../../servicies/empleados.service';
 import { EmpleadoModel } from './../../../models/empleado.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { CLIENT_RENEG_WINDOW } from 'tls';
@@ -13,10 +13,11 @@ import { Observable } from 'rxjs';
   selector: 'app-registroEmp',
   templateUrl: './registroEmp.component.html'
 })
-export class RegistroEmpleadoComponent implements OnInit, CanComponentDeactivate {
+export class RegistroEmpleadoComponent implements OnInit, CanComponentDeactivate, OnChanges {
 
   empleado:EmpleadoModel;
   _nuevo:boolean;
+  _guardo:boolean;
 
   constructor(
     private activatedroute:ActivatedRoute,
@@ -40,17 +41,27 @@ export class RegistroEmpleadoComponent implements OnInit, CanComponentDeactivate
           this._nuevo =true;
         }
       });
+
+      console.log("constructor");
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("onchanges registros emp");
+    console.log(changes);
   }
 
   ngOnInit(): void {
-    
+    console.log("init");
   }
 
   puedeSalir(): boolean | Observable<boolean> | Promise<boolean>
   {
-    const confirm = window.confirm('desea salir sin guardar cambios');
-    console.log("entro al deactivate");
-    return confirm;    
+    if(!this._guardo) {
+      const confirm = window.confirm('desea salir sin guardar cambios');
+      console.log("entro al deactivate");
+      return confirm;   
+    } 
+    
+    return this._guardo;
   }  
 
   submit(form:NgForm)
@@ -66,6 +77,8 @@ export class RegistroEmpleadoComponent implements OnInit, CanComponentDeactivate
     }else{
       this.servicioEmpleado.modificarEmpleado(this.empleado);
     }
+
+    this._guardo =true;
 
     this.router.navigate(['/home/listaEmp']);
   }

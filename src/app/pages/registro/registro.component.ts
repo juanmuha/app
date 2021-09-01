@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 
@@ -7,17 +7,23 @@ import { UsuarioModel } from 'src/app/models/usuario.model';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit {
+export class RegistroComponent implements OnInit, OnChanges {
 
   usuario: UsuarioModel;
 
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("cambios");
+  }
 
   ngOnInit() { 
     this.usuario =new UsuarioModel();
 
     console.log(this.usuario);  
   }
+
+  
 
   onSubmit(form:NgForm)
   {

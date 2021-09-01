@@ -1,0 +1,28 @@
+.i-emp-delete i:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    border:1px black;
+  }
+  
+  .i-emp-delete:hover i {
+    padding-right: 8px;
+    border:1px black;
+  }
+  
+  .i-emp-delete:hover i:after {
+    opacity: 1;
+    right: 0;
+    border:1px black;
+  }
+
+  .i-emp-delete i
+  {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }

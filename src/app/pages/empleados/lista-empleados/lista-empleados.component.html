@@ -3,7 +3,8 @@
 <hr>
 
 <div class="list-group">
-  <a *ngFor="let emp of listaEmpleados"  
+  <div  *ngFor="let emp of listaEmpleados" >
+  <a 
   class="list-group-item list-group-item-action" 
   aria-current="true"
   [routerLink]="['/home/registroEmp', emp.id]"
@@ -16,6 +17,10 @@
       </span>
     </div>
     <p class="mb-1">{{ emp.email }}</p>
-    <small>{{ emp.rfc }}</small>
-  </a>  
+    <small>{{ emp.rfc }}</small>        
+    <div style="display: inline-block; width:89%; text-align: right; ">
+      <span class="i-emp-delete"><i (click)="eliminar(emp.id)" class="fa fa-trash-o" aria-hidden="true" ></i></span>
+    </div>
+  </a>      
+</div>
 </div>
