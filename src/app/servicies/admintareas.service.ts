@@ -52,6 +52,19 @@ export class AdmintareasService {
     this._showTareas = false;
   }
 
+  agregarTarea(tarea:TareaModel)
+  {
+    let max=1;
+    this.listaTareas.filter(e => e.idempleado==tarea.idempleado).forEach(element => {
+      if(element.id>max)
+      {
+        max=element.id;
+      }
+    });
+    tarea.id=max+1;
+    this.listaTareas.push(tarea);
+  }
+
   obtenerTareasEmpleado(idemp: number): TareaModel[] {
     return this.listaTareas.filter(e => e.idempleado == idemp);
   }
@@ -61,9 +74,7 @@ export class AdmintareasService {
       e => {
         return e.idempleado == tarea.idempleado && e.id == tarea.id
       });    
-
-    console.log(this.listaTareas[i].concluida);    
-    this.listaTareas[i].concluida = !this.listaTareas[i].concluida;
-    console.log(this.listaTareas[i].concluida);
+    
+    this.listaTareas[i].concluida = !this.listaTareas[i].concluida;    
   }
 }

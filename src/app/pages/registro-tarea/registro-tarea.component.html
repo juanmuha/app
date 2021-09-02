@@ -1,23 +1,54 @@
-<div>
-<form>
-  <div class="row">
-    <div class="col">
-      <label for="nombre">Nombre</label>
-      <input type="text" name="nombre" placeholder="Nombre" class="form-control" />
-    </div>    
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Descripción de la tarea" id="floatingTextarea"></textarea>        
+<div class="animated fadeIn">
+  <form #f="ngForm"
+      (submit)="guardar(f)">
+    <h4><small>Nueva Tarea</small></h4>
+    <div class="row">
+      <div class="col">
+        <label for="nombre">Tarea:</label>
+        <input
+          id="new-tarea-nombre"
+          type="text"
+          name="nombre"
+          placeholder="Indica el nombre de la tarea"
+          class="form-control mb-2"
+          [ngModel]="tarea.nombre"
+        />
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <label>Fecha Inicio</label>
-      <input type="text" placeholder="Fecha Inicio" class="form-control" />
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <label for="descripcion">Descripcion:</label>
+          <textarea
+            class="form-control mb-2"
+            style="height: 100px"
+            name="descripcion"
+            placeholder="Describe la tarea..."
+            id="floatingTextarea"
+            [ngModel]="tarea.descripcion"
+          ></textarea>
+        </div>
+      </div>
     </div>
-  </div>
-</form>
+    <div class="row">
+      <div class="col-6">
+        <label for="fechaInicia">Fecha Asignación:</label>
+        <input
+          id="datepicker"
+          data-onload="sampleFunction()"
+          name="fechaAsignacion"
+          type="text"
+          [ngModel]="tarea.fechaAsignacion"
+          placeholder="¿Cuando inicia?"
+          class="form-control mb-2"
+        />
+      </div>
+    </div>
+    <div class="pt-4 text-right">
+      <button type="submit" class="btn btn-primary mr-3">Guardar</button>
+      <button type="btn" (click)="cerrar()" class="btn btn-secondary">
+        Cancelar
+      </button>
+    </div>
+  </form>
 </div>

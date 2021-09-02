@@ -31,7 +31,7 @@ import { RegistroTareaComponent } from './pages/registro-tarea/registro-tarea.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

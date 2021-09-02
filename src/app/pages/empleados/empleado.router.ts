@@ -1,3 +1,4 @@
+import { RegistroTareaComponent } from './../registro-tarea/registro-tarea.component';
 import { TareasComponent } from './../tareas/tareas.component';
 import { Component } from '@angular/core';
 import { EmpleadoGuard } from "./../../servicies/empleado.guard";
@@ -14,7 +15,11 @@ export const EMP_ROUTES = [
   {
     path: "listaEmp",
     component: ListaEmpleadosComponent,
-    children: [{ path: "tarea/:id", component:TareasComponent }],
+    children: [{ 
+      path: "tarea/:id", 
+      component:TareasComponent,
+      children: [{ path:"nuevaTarea/:id", component: RegistroTareaComponent }]
+    }],
   },
   { path: "**", pathMatch: "full", redirectTo: "listaEmp" },
 ];

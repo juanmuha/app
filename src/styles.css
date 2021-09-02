@@ -26,3 +26,10 @@
     position: relative;
     transition: 0.5s;
   }
+
+  .registro-tarea
+  {
+    background-color: rgb(245, 245, 245);
+    color: rgb(58, 58, 58);
+    border-radius: 11px;
+  }
