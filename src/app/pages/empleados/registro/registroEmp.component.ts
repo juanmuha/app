@@ -38,6 +38,8 @@ export class RegistroEmpleadoComponent implements OnInit, CanComponentDeactivate
         {
           console.log("registrar");
           this.empleado = new EmpleadoModel();
+          this.empleado.edad=0;
+          this.empleado.sueldo=0;
           this._nuevo =true;
         }
       });

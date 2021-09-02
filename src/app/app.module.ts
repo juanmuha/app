@@ -14,6 +14,7 @@ import { NavbarComponent } from './pages/shared/navbar/navbar.component';
 import { RegistroEmpleadoComponent  } from "./pages/empleados/registro/registroEmp.component";
 import { ListaEmpleadosComponent } from './pages/empleados/lista-empleados/lista-empleados.component';
 import { TareasComponent } from './pages/tareas/tareas.component';
+import { RegistroTareaComponent } from './pages/registro-tarea/registro-tarea.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TareasComponent } from './pages/tareas/tareas.component';
     NavbarComponent,
     RegistroEmpleadoComponent,
     ListaEmpleadosComponent,
-    TareasComponent
+    TareasComponent,
+    RegistroTareaComponent
   ],
   imports: [
     BrowserModule,

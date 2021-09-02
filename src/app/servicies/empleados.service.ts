@@ -45,7 +45,7 @@ export class EmpleadosService {
         max=element.id;
       }   
     });
-    empleado.id=max;
+    empleado.id=max+1;
     this.empleados.push(empleado);
   }
 

@@ -1,12 +1,12 @@
-<h1>Lista de <small>Empleados</small></h1>
+<h1>Lista de <small>Empleados  <i [routerLink]="['/home/registroEmp','0']" style="cursor: pointer;" class="fa fa-user-plus" aria-hidden="true"></i></small></h1>
 
 <hr />
 <div class="row">
-  <div [ngStyle]="{ display: 'inline-block', width: adminTareasService._widthW }">
+  <div class="animated fadeIn" [ngStyle]="{ display: 'inline-block', width: adminTareasService._widthW }">
     <div class="list-group">
       <div class="row" *ngFor="let emp of listaEmpleados">
         <div class="col-11">
-          <a class="list-group-item list-group-item-action" (click)="mostrarVentanaTareas(emp.id)" aria-current="true">
+          <a class="list-group-item list-group-item-action" style="cursor: pointer;" (click)="mostrarVentanaTareas(emp.id)" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">{{ emp.nombre }}</h5>
               <small>Edad: {{ emp.edad }}</small>

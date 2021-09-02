@@ -6,27 +6,39 @@
 </div> -->
 <div class="row animated fadeInRight">
   <div class="col-9">
-    <h4><small>Tareas</small></h4>
+    <h4><small>Tareas <i class="fa fa-plus-square-o" style="cursor: pointer;" aria-hidden="true"></i></small></h4>
   </div>
   <div class="col-2" style="width: 100%">
     <button type="button" (click)="cerrar()" class="btn btn-light">x</button>
   </div>
 </div>
 <hr />
-
+<div class="container">
+  <app-registro-tarea></app-registro-tarea>
+</div>
 <div class="row">
   <div class="col">
     <table class="table">
       <thead>
         <tr>
           <th>Nombre</th>
-          <th>Concluido</th>          
+          <th>Concluida</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let tarea of listaTareas;" >
-          <td>{{ tarea.nombre }}</td>
-          <td>{{ tarea.concluida }}</td>
+        <tr *ngFor="let tarea of listaTareas;">
+          <td><small>{{ tarea.nombre }}</small></td>
+          <td  class="text-center">
+            <input 
+            style="cursor: pointer;"
+            (click)="marcarConcluida(tarea)"
+            class="form-check-input" 
+            type="checkbox" 
+            value="" 
+            id="flexCheckDefault"
+            [checked]="tarea.concluida"
+            >
+          </td>
         </tr>
       </tbody>
     </table>

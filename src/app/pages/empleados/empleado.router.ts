@@ -16,5 +16,5 @@ export const EMP_ROUTES = [
     component: ListaEmpleadosComponent,
     children: [{ path: "tarea/:id", component:TareasComponent }],
   },
-  { path: "**", pathMatch: "full", redirectTo: "registroEmp" },
+  { path: "**", pathMatch: "full", redirectTo: "listaEmp" },
 ];

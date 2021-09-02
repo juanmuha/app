@@ -22,7 +22,7 @@ export class TareasComponent implements OnInit {
       {
         console.log(param["id"]);        
         this.listaTareas = this.admiTareaService.obtenerTareasEmpleado(param["id"]);
-        // console.log(this.listaTareas);
+        console.log(this.listaTareas);
         // this.listaTareas = this.admiTareaService.listaTareas;
         // console.log(this.listaTareas);
       });
@@ -33,4 +33,8 @@ export class TareasComponent implements OnInit {
     this.admiTareaService.ocultarTareas();
   }
 
+  marcarConcluida(tarea:TareaModel)
+  {
+    this.admiTareaService.marcarConcluida(tarea);
+  }
 }

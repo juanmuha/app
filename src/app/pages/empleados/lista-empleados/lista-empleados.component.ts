@@ -22,7 +22,8 @@ export class ListaEmpleadosComponent implements OnInit {
 
   ngOnInit() {
     this.listaEmpleados = this.servicioEmpleados.obtenerTodos();
-    this._widthVentama = "100%";
+    this.adminTareasService._widthW="100%";
+    //this._widthVentama = "100%";
   }
 
   eliminar(id: number) {
