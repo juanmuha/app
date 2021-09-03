@@ -9,12 +9,22 @@
     <h4><small>Tareas <i (click)="nuevaTarea()" class="fa fa-plus-square-o" style="cursor: pointer;" aria-hidden="true"></i></small></h4>
   </div>
   <div class="col-2" style="width: 100%">
-    <button type="button" (click)="cerrar()" class="btn btn-light">x</button>
+    <!-- <button type="button" (click)="cerrar()" class="btn btn-close">x</button> -->
+    <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
   </div>
 </div>
 <hr />
-<div class="registro-tarea container pb-3" *ngIf="_esNuevaTareaActivado">
-  <router-outlet></router-outlet>
+<div class="container pb-3" *ngIf="_esNuevaTareaActivado">
+  <app-registro-tarea (eventOutPut)=refrescarTareas($event)></app-registro-tarea>
 </div>
 <div class="row">
   <div class="col">

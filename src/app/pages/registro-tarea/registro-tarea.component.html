@@ -1,52 +1,34 @@
 <div class="animated fadeIn">
-  <form #f="ngForm"
-      (submit)="guardar(f)">
+  <form #f="ngForm" (submit)="guardar(f)">
     <h4><small>Nueva Tarea</small></h4>
     <div class="row">
       <div class="col">
         <label for="nombre">Tarea:</label>
-        <input
-          id="new-tarea-nombre"
-          type="text"
-          name="nombre"
-          placeholder="Indica el nombre de la tarea"
-          class="form-control mb-2"
-          [ngModel]="tarea.nombre"
-        />
+        <span *ngIf="f.submitted && !f.controls.nombre.valid" class="text-danger"><i><small> Debe indicar el nombre de la tarea</small></i></span>
+        <input id="new-tarea-nombre" type="text" name="nombre" required placeholder="Indica el nombre de la tarea"
+          class="form-control mb-2" [(ngModel)]="tarea.nombre" />
       </div>
     </div>
-    <div class="row">
+    <div class="row" hidden>
       <div class="col">
         <div class="form-floating">
           <label for="descripcion">Descripcion:</label>
-          <textarea
-            class="form-control mb-2"
-            style="height: 100px"
-            name="descripcion"
-            placeholder="Describe la tarea..."
-            id="floatingTextarea"
-            [ngModel]="tarea.descripcion"
-          ></textarea>
+          <textarea class="form-control mb-2" style="height: 100px" name="descripcion"
+            placeholder="Describe la tarea..." id="floatingTextarea" [(ngModel)]="tarea.descripcion"></textarea>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" hidden>
       <div class="col-6">
         <label for="fechaInicia">Fecha Asignación:</label>
-        <input
-          id="datepicker"
-          data-onload="sampleFunction()"
-          name="fechaAsignacion"
-          type="text"
-          [ngModel]="tarea.fechaAsignacion"
-          placeholder="¿Cuando inicia?"
-          class="form-control mb-2"
-        />
+        <input id="datepicker" data-onload="sampleFunction()" name="fechaAsignacion" type="text"
+          [ngModel]="tarea.fechaAsignacion | date:'dd/mm/yyyy'" (ngModelChange)="tarea.fechaAsignacion=$event"
+          placeholder="¿Cuando inicia?" class="form-control mb-2" />
       </div>
     </div>
     <div class="pt-4 text-right">
       <button type="submit" class="btn btn-primary mr-3">Guardar</button>
-      <button type="btn" (click)="cerrar()" class="btn btn-secondary">
+      <button type="button" (click)="cerrar()" class="btn btn-secondary">
         Cancelar
       </button>
     </div>

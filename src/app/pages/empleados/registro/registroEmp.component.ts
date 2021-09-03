@@ -58,8 +58,7 @@ export class RegistroEmpleadoComponent implements OnInit, CanComponentDeactivate
   puedeSalir(): boolean | Observable<boolean> | Promise<boolean>
   {
     if(!this._guardo) {
-      const confirm = window.confirm('desea salir sin guardar cambios');
-      console.log("entro al deactivate");
+      const confirm = window.confirm('desea salir sin guardar cambios');      
       return confirm;   
     } 
     
